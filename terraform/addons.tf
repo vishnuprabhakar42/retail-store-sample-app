@@ -12,6 +12,9 @@ module "eks_addons" {
   cluster_version   = module.retail_app_eks.cluster_version
   oidc_provider_arn = module.retail_app_eks.oidc_provider_arn
 
+  # Wait longer before installing addons so EKS Auto Mode nodes can provision (reduces ingress timeout)
+  create_delay_duration = "90s"
+
   # =============================================================================
   # CERT-MANAGER - SSL Certificate Management
   # =============================================================================
@@ -28,7 +31,10 @@ module "eks_addons" {
   ingress_nginx = {
     most_recent = true
     namespace   = "ingress-nginx"
-    
+
+    # Give EKS Auto Mode time to provision nodes and NLB to become ready (default 300s often times out)
+    timeout = 600
+
     # Basic configuration
     set = [
       {
