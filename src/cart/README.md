@@ -2,7 +2,7 @@
 
 <!-- GitOps Test: Multi-service deploy test - Cart -->
 
-<!-- testing my app -->
+
 
 | Language | Persistence     |
 | -------- | --------------- |
