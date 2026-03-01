@@ -2,6 +2,8 @@
 
 <!-- GitOps Test: Testing deploy-simple.yml workflow -->
 
+<!-- testing my app -->
+
 | Language | Persistence |
 | -------- | ----------- |
 | Java     | N/A         |
